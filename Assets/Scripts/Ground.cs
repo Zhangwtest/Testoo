@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-    public int index { get; private set; } = 0;
+    //初始值设为0.
+    public int Index { get; private set; } = 0;
 
     public void SetIndex(int index)
     {
-        this.index = index;
+        this.Index = index;
     }
 }
