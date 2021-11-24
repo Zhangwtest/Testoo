@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float startSpeed;
+    public float slowtime;
     public float moveDistance;
 
     private Rigidbody2D rig;
@@ -24,6 +25,7 @@ public class PlayerControl : MonoBehaviour
 
     //Player开始跑步。
     //ToDo:移动还是匀速，要改成越跑越快。
+    //ToDo：后续改成点击UI按钮来开始跑步。
     void PlayerStartRun()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -58,8 +60,17 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("obstacle"))
         {
             rig.velocity = transform.right * startSpeed / 20;
+            StartCoroutine(NormalSpeed());
         }
     }
+
+    IEnumerator NormalSpeed()
+    {
+        yield return new WaitForSeconds(slowtime);
+        rig.velocity = transform.right * startSpeed;
+    }
+
+
 
     //void Attack()
     //{
@@ -70,11 +81,6 @@ public class PlayerControl : MonoBehaviour
     //        SoundManager.PlaySwordClip();
     //    }
     //}
-    //IEnumerator StartAttack()
-    //{
-    //    yield return new WaitForSeconds(startTime);
-    //    coll2D.enabled = true;
-    //    StartCoroutine(disableHitBox());
-    //}
+
 
 }

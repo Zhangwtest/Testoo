@@ -59,30 +59,4 @@ public class GroundControl : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //public float moveSpeed = 8f;
-
-    //void Update()
-    //{
-    //    this.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);                                           场景向下移动
-    //    Vector3 postion = this.transform.position;                                                                     获取当前场景位置
-    //    if (postion.y <= -8.52f)                                                                                       判断该位置是否小于等于-8.52，也就是说是否超出了区域。
-    //    {
-    //        this.transform.position = new Vector3(postion.x, postion.y + 8.52f * 2, postion.z);//赋予新的位置
-    //    }
-
-    //}
-
 }
