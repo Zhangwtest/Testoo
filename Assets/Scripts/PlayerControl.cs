@@ -72,15 +72,4 @@ public class PlayerControl : MonoBehaviour
 
 
 
-    //void Attack()
-    //{
-    //    if (Input.GetButtonDown("Attack"))
-    //    {
-    //        anim.SetTrigger("Attack");
-    //        StartCoroutine(StartAttack());
-    //        SoundManager.PlaySwordClip();
-    //    }
-    //}
-
-
 }

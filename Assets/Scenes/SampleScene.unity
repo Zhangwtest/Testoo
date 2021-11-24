@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 3085981388092550364, guid: f80688af3fd42e84fbd07c028d3c7660,
         type: 3}
       propertyPath: slowtime
-      value: 0.2
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3085981388092550367, guid: f80688af3fd42e84fbd07c028d3c7660,
         type: 3}
@@ -570,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 7798291300278307518, guid: 117c9348233f2f74a8a638ecfd17aa60,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.89
+      value: -2.79
       objectReference: {fileID: 0}
     - target: {fileID: 7798291300278307518, guid: 117c9348233f2f74a8a638ecfd17aa60,
         type: 3}
@@ -631,6 +631,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117c9348233f2f74a8a638ecfd17aa60, type: 3}
@@ -701,5 +706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_a
       objectReference: {fileID: 0}
+    - target: {fileID: 8852716846772143879, guid: e5a5f68882981464a9a2820ee6469cc7,
+        type: 3}
+      propertyPath: obstacle
+      value: 
+      objectReference: {fileID: 83662782}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5a5f68882981464a9a2820ee6469cc7, type: 3}
