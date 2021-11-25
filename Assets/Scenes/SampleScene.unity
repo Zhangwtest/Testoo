@@ -127,25 +127,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7798291300358757759}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &83662786
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83662782}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a8e21663938a32f43a13fb613fb9ea83, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &850845741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3085981388092550367, guid: f80688af3fd42e84fbd07c028d3c7660,
@@ -617,25 +598,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7798291300278307520, guid: 117c9348233f2f74a8a638ecfd17aa60,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
         type: 3}
       propertyPath: m_Name
       value: obstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
-        type: 3}
-      propertyPath: m_TagString
-      value: obstacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 117c9348233f2f74a8a638ecfd17aa60, type: 3}

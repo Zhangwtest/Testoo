@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7798291300278307518}
   - component: {fileID: 7798291300278307519}
   - component: {fileID: 7798291300278307520}
+  - component: {fileID: 83662786}
   m_Layer: 0
   m_Name: obstacle
-  m_TagString: Untagged
+  m_TagString: obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0047803745, y: 0.0023902655}
@@ -109,3 +110,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2134626, y: 0.36868227}
   m_EdgeRadius: 0
+--- !u!95 &83662786
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798291300278307521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8e21663938a32f43a13fb613fb9ea83, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
