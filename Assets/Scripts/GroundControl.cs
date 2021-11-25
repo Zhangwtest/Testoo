@@ -54,7 +54,7 @@ public class GroundControl : MonoBehaviour
                 ground.SetIndex(index + i);
 
                 groundList.Add(ground);
-                Debug.Log($"生成Index为{index + i}的Ground");
+                //Debug.Log($"生成Index为{index + i}的Ground");
             }
         }
     }

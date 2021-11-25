@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float startSpeed;
+    public float startSpeed;            //player的起始速度
+    public float accSpeedEachSecond;    //player的加速度
+
+    private float accTimeCount = 0;
+    private float currentSpeed = 0;
+    private float playerMaxSpeed = 32;
+    private bool isRun = false;
+
     public float slowtime;
     public float moveDistance;
 
@@ -20,18 +27,36 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         PlayerStartRun();
+        PlayerSpeed();
         PlayerMove();
+
+    }
+
+    void PlayerSpeed()
+    {
+        if (isRun)
+        {
+            if (currentSpeed < playerMaxSpeed)
+            {
+                accTimeCount += Time.deltaTime;
+                currentSpeed = startSpeed + accTimeCount * accSpeedEachSecond;
+            }
+            if (currentSpeed >= playerMaxSpeed)
+            {
+                currentSpeed = playerMaxSpeed;
+            }
+            rig.velocity = transform.right * currentSpeed;
+            Debug.Log(currentSpeed);
+        }
     }
 
     //Player开始跑步。
-    //ToDo:移动还是匀速，要改成越跑越快。
-    //ToDo：后续改成点击UI按钮来开始跑步。
     void PlayerStartRun()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             anim.SetBool("Run", true);
-            rig.velocity = transform.right * startSpeed;
+            isRun = true;
         }
     }
 
@@ -59,7 +84,9 @@ public class PlayerControl : MonoBehaviour
     {
         if (other.gameObject.CompareTag("obstacle"))
         {
-            rig.velocity = transform.right * startSpeed / 20;
+            isRun = false;
+            currentSpeed = currentSpeed / 50f;
+            rig.velocity = transform.right * currentSpeed;
             StartCoroutine(NormalSpeed());
         }
     }
@@ -67,7 +94,7 @@ public class PlayerControl : MonoBehaviour
     IEnumerator NormalSpeed()
     {
         yield return new WaitForSeconds(slowtime);
-        rig.velocity = transform.right * startSpeed;
+        isRun = true;
     }
 
 
