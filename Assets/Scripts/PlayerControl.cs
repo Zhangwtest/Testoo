@@ -12,8 +12,8 @@ public class PlayerControl : MonoBehaviour
     private float playerMaxSpeed = 32;
     private bool isRun = false;
 
-    public float slowtime;
-    public float moveDistance;
+    public float slowtime;             //碰到障碍物后减速的时间
+    public float moveDistance;         //player上下移动一次的距离
 
     private Rigidbody2D rig;
     private Animator anim;
@@ -32,6 +32,17 @@ public class PlayerControl : MonoBehaviour
 
     }
 
+    //按空格使player的运动状态切换为true
+    void PlayerStartRun()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            anim.SetBool("Run", true);
+            isRun = true;
+        }
+    }
+
+    //player的移动速度计算（加速度公式是否还有优化空间？lerp？）
     void PlayerSpeed()
     {
         if (isRun)
@@ -50,16 +61,6 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //Player开始跑步。
-    void PlayerStartRun()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool("Run", true);
-            isRun = true;
-        }
-    }
-
     //Player上下移动。
     void PlayerMove()
     {
@@ -70,7 +71,6 @@ public class PlayerControl : MonoBehaviour
                 this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + moveDistance, 0);
             }
         }
-
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (this.transform.position.y - moveDistance > -3.5f)
@@ -80,12 +80,13 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //player与obstacle的碰撞事件
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("obstacle"))
         {
             isRun = false;
-            currentSpeed = currentSpeed / 50f;
+            currentSpeed = currentSpeed / 500f;
             rig.velocity = transform.right * currentSpeed;
             StartCoroutine(NormalSpeed());
         }
@@ -95,6 +96,7 @@ public class PlayerControl : MonoBehaviour
     {
         yield return new WaitForSeconds(slowtime);
         isRun = true;
+        accTimeCount = accTimeCount * 0.25f;
     }
 
 
