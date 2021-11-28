@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8377364774861291102}
   - component: {fileID: 8852716846772143879}
   m_Layer: 0
-  m_Name: Ground_a
+  m_Name: Ground_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 8377364774861291103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,3 +94,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c58eceff97abb4983493a15718b0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacle: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
+    type: 3}

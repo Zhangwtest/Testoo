@@ -18,10 +18,20 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D rig;
     private Animator anim;
 
+    public int heartNum;
+
     void Start()
     {
+        //重新加载场景后，将timescale重置为1
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+        
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        heartNum = 3;
+
     }
 
     void Update()
@@ -29,7 +39,7 @@ public class PlayerControl : MonoBehaviour
         PlayerStartRun();
         PlayerSpeed();
         PlayerMove();
-
+        Debug.Log(Time.timeScale);
     }
 
     //按空格使player的运动状态切换为true
@@ -57,7 +67,7 @@ public class PlayerControl : MonoBehaviour
                 currentSpeed = playerMaxSpeed;
             }
             rig.velocity = transform.right * currentSpeed;
-            Debug.Log(currentSpeed);
+            //Debug.Log(currentSpeed);
         }
     }
 
@@ -86,8 +96,10 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("obstacle"))
         {
             isRun = false;
+            heartNum = heartNum - 1;
             currentSpeed = currentSpeed / 500f;
             rig.velocity = transform.right * currentSpeed;
+            Destroy(other.gameObject);
             StartCoroutine(NormalSpeed());
         }
     }

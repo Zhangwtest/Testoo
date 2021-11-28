@@ -46,12 +46,13 @@ public class GroundControl : MonoBehaviour
             //生成interval个新场景。
             for (int i = 0; i < interval; i++)
             {
-                Vector3 newPos = new Vector3((index + i) * distance, 0, 0);
+                Vector3 newPos = new Vector3((index + i) * distance + 10, 0, 0);
                 GameObject go = Instantiate(ground_a, newPos, Quaternion.identity);
 
                 //获取GameObject上名为Ground的脚本组件，运行SetIndex函数设置Index的值。
                 Ground ground = go.GetComponent<Ground>();
                 ground.SetIndex(index + i);
+                ground.BornObstacle();
 
                 groundList.Add(ground);
                 //Debug.Log($"生成Index为{index + i}的Ground");
