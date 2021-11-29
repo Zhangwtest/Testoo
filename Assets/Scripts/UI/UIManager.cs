@@ -6,11 +6,10 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public PlayerControl player;
-    public Transform canvas;
     public Text ScoreText;
     public int ScoreNum;
-    public GameObject[] hearts;
 
+    public GameObject[] hearts;
     public GameOverUI gameOverUI;
 
     void Start()
