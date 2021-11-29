@@ -53,6 +53,9 @@ public class PlayerControl : MonoBehaviour
     }
 
     //player的移动速度计算（加速度公式是否还有优化空间？lerp？）
+    /// <summary>
+    /// 注释
+    /// </summary>
     void PlayerSpeed()
     {
         if (isRun)

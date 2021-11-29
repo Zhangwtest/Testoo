@@ -25,6 +25,7 @@ public class GameOverUI : MonoBehaviour
     {     
         gameObject.SetActive(false);
         SceneManager.LoadScene(0);
+
     }
 
 
