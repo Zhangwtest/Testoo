@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class PlayerControl : MonoBehaviour
     public float accSpeedEachSecond;    //player的加速度
 
     private float accTimeCount = 0;
-    private float currentSpeed = 0;
+    private Vector2 currentSpeed = Vector2.zero;
     private float playerMaxSpeed = 32;
     private bool isRun = false;
 
@@ -60,16 +61,30 @@ public class PlayerControl : MonoBehaviour
     {
         if (isRun)
         {
-            if (currentSpeed < playerMaxSpeed)
+            if (currentSpeed.x < playerMaxSpeed)
             {
                 accTimeCount += Time.deltaTime;
-                currentSpeed = startSpeed + accTimeCount * accSpeedEachSecond;
+                currentSpeed = new Vector2( startSpeed + accTimeCount * accSpeedEachSecond, 0);
             }
-            if (currentSpeed >= playerMaxSpeed)
+            if (currentSpeed.x >= playerMaxSpeed)
             {
-                currentSpeed = playerMaxSpeed;
+                currentSpeed = new Vector2(playerMaxSpeed, 0);
             }
-            rig.velocity = transform.right * currentSpeed;
+            if (Input.GetKey(KeyCode.W))
+            {
+                if (this.transform.position.y + moveDistance < 3.5f)
+                {
+                    currentSpeed = new Vector2(currentSpeed.x, 5);
+                }
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                if (this.transform.position.y - moveDistance > -3.5f)
+                {
+                    currentSpeed = new Vector2(currentSpeed.x, -5);
+                }
+            }
+            rig.velocity = currentSpeed;
             //Debug.Log(currentSpeed);
         }
     }
@@ -77,20 +92,22 @@ public class PlayerControl : MonoBehaviour
     //Player上下移动。
     void PlayerMove()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (this.transform.position.y + moveDistance < 3.5f)
-            {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + moveDistance, 0);
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (this.transform.position.y - moveDistance > -3.5f)
-            {
-                this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - moveDistance, 0);
-            }
-        }
+        //if (Input.GetKeyDown(KeyCode.W))
+        //{
+        //    if (this.transform.position.y + moveDistance < 3.5f)
+        //    {
+        //        //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + moveDistance, 0);
+        //        transform.DOMove(new Vector3(this.transform.position.x, this.transform.position.y + moveDistance, 0), 0.5f);
+        //    }
+        //}
+        //if (Input.GetKeyDown(KeyCode.S))
+        //{
+        //    if (this.transform.position.y - moveDistance > -3.5f)
+        //    {
+        //        //this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - moveDistance, 0);
+        //        transform.DOMove(new Vector3(this.transform.position.x, this.transform.position.y - moveDistance, 0), 0.5f);
+        //    }
+        //}
     }
 
     //player与obstacle的碰撞事件
@@ -101,7 +118,7 @@ public class PlayerControl : MonoBehaviour
             isRun = false;
             heartNum = heartNum - 1;
             currentSpeed = currentSpeed / 500f;
-            rig.velocity = transform.right * currentSpeed;
+            rig.velocity = currentSpeed;
             Destroy(other.gameObject);
             StartCoroutine(NormalSpeed());
         }
