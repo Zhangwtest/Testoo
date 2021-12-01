@@ -52,7 +52,7 @@ public class GroundControl : MonoBehaviour
                 //获取GameObject上名为Ground的脚本组件，运行SetIndex函数设置Index的值。
                 Ground ground = go.GetComponent<Ground>();
                 ground.SetIndex(index + i);
-                ground.BornObstacle();
+                //ground.BornObstacle();
 
                 groundList.Add(ground);
                 //Debug.Log($"生成Index为{index + i}的Ground");

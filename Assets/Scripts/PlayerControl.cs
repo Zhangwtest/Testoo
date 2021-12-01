@@ -11,7 +11,7 @@ public class PlayerControl : MonoBehaviour
     private float accTimeCount = 0;
     private Vector2 currentSpeed = Vector2.zero;
     private float playerMaxSpeed = 32;
-    private bool isRun = false;
+    public bool isRun = false;
 
     public float slowtime;             //碰到障碍物后减速的时间
     //public float moveDistance;         //player上下移动一次的距离
@@ -39,11 +39,13 @@ public class PlayerControl : MonoBehaviour
     {
         PlayerStartRun();
         PlayerSpeed();
-        PlayerMove();
-        Debug.Log(Time.timeScale);
+        //PlayerMove();
+        //Debug.Log(Time.timeScale);
     }
 
-    //按空格使player的运动状态切换为true
+    /// <summary>
+    /// 按空格使player的运动状态切换为true
+    /// </summary>
     void PlayerStartRun()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -91,7 +93,9 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //Player上下移动。
+    /// <summary>
+    /// Player上下移动
+    /// </summary>
     void PlayerMove()
     {
         //if (Input.GetKeyDown(KeyCode.W))
@@ -112,7 +116,10 @@ public class PlayerControl : MonoBehaviour
         //}
     }
 
-    //player与obstacle的碰撞事件
+    /// <summary>
+    /// player与obstacle的碰撞事件
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("obstacle"))

@@ -455,7 +455,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 850845743}
-  canvas: {fileID: 1716078892}
   ScoreText: {fileID: 21910312}
   ScoreNum: 0
   hearts:
@@ -1726,6 +1725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2082786854}
   - component: {fileID: 2082786853}
+  - component: {fileID: 2082786855}
   m_Layer: 0
   m_Name: GroundControl
   m_TagString: Untagged
@@ -1764,6 +1764,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2082786855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2082786852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3056fdb099bfa994eb1f3aa93bd60c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
+    type: 3}
+  player: {fileID: 850845743}
 --- !u!1 &2110092152
 GameObject:
   m_ObjectHideFlags: 0

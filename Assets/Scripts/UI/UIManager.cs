@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
         ScoreControl();
     }
 
+    /// <summary>
+    /// 生命值图标的显示
+    /// </summary>
     void HeartControl()
     {
         for (int i = 0; i < hearts.Length; i++)

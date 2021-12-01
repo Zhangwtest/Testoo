@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8377364774861291101}
   - component: {fileID: 8377364774861291102}
-  - component: {fileID: 8852716846772143879}
+  - component: {fileID: -5241534735357342943}
   m_Layer: 0
   m_Name: Ground_b
   m_TagString: Untagged
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8852716846772143879
+--- !u!114 &-5241534735357342943
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,5 +94,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c58eceff97abb4983493a15718b0aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstacle: {fileID: 7798291300278307521, guid: 117c9348233f2f74a8a638ecfd17aa60,
-    type: 3}
