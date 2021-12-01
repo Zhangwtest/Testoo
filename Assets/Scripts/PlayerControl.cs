@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     private bool isRun = false;
 
     public float slowtime;             //碰到障碍物后减速的时间
-    public float moveDistance;         //player上下移动一次的距离
+    //public float moveDistance;         //player上下移动一次的距离
 
     private Rigidbody2D rig;
     private Animator anim;
@@ -53,9 +53,8 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //player的移动速度计算（加速度公式是否还有优化空间？lerp？）
     /// <summary>
-    /// 注释
+    /// player的移动速度计算
     /// </summary>
     void PlayerSpeed()
     {
@@ -66,20 +65,23 @@ public class PlayerControl : MonoBehaviour
                 accTimeCount += Time.deltaTime;
                 currentSpeed = new Vector2( startSpeed + accTimeCount * accSpeedEachSecond, 0);
             }
+
             if (currentSpeed.x >= playerMaxSpeed)
             {
                 currentSpeed = new Vector2(playerMaxSpeed, 0);
             }
+
             if (Input.GetKey(KeyCode.W))
             {
-                if (this.transform.position.y + moveDistance < 3.5f)
+                if (this.transform.position.y < 3f)
                 {
                     currentSpeed = new Vector2(currentSpeed.x, 5);
                 }
             }
+
             if (Input.GetKey(KeyCode.S))
             {
-                if (this.transform.position.y - moveDistance > -3.5f)
+                if (this.transform.position.y  > -3f)
                 {
                     currentSpeed = new Vector2(currentSpeed.x, -5);
                 }
