@@ -23,6 +23,9 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
+
+        Debug.Log(transform);
+
         //重新加载场景后，将timescale重置为1
         if (Time.timeScale != 1)
         {

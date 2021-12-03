@@ -24,7 +24,7 @@ public class GameOverUI : MonoBehaviour
     public void CloseGameOverUI()
     {     
         gameObject.SetActive(false);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
 
     }
 
