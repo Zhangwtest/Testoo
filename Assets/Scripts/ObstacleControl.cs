@@ -25,7 +25,7 @@ public class ObstacleControl : MonoBehaviour
     {
         if (player.isRun)
         {
-            randomTime = Random.Range(1f, 1.5f);
+            randomTime = Random.Range(0.8f, 1.2f);
             bornTime += Time.deltaTime;
 
             if (bornTime >= randomTime)
